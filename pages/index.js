@@ -15,13 +15,8 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to my Next-Okta poc. This is the home page.
         </h1>
-        <button
-          onClick={() =>
-            signIn("okta", { callbackUrl: "http://localhost:3000/content" })
-          }
-        >
-          Click to login
-        </button>
+        {/* Specifying okta for signIn removes intermediate page */}
+        <button onClick={() => signIn("okta")}>Click to login</button>
       </main>
     </div>
   );

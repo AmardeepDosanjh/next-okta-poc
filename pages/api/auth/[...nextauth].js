@@ -9,6 +9,11 @@ const options = {
       domain: process.env.OKTA_DOMAIN,
     }),
   ],
+  callbacks: {
+    async redirect(url, baseUrl) {
+      return `${baseUrl}/content`; //specify where to redirect after login
+    },
+  },
 };
 
 export default (req, res) => NextAuth(req, res, options);
