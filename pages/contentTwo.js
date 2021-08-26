@@ -24,7 +24,10 @@ export async function getServerSideProps(context) {
     res.end();
   }
 
+  const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+  const json = await response.json();
+
   // call Contentful and get data then return as props to the page
 
-  return { props: { test: "123 " } };
+  return { props: { test: json["title"] } };
 }
